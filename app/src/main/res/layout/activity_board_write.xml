@@ -51,7 +51,7 @@
         app:layout_constraintTop_toTopOf="@+id/saveBoard" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/eidtContent"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="50dp"
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:text="내용"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName4"
+        app:layout_constraintBottom_toTopOf="@+id/eidtContent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/savePassword" />
 

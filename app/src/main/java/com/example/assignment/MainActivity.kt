@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     val mAdapter = RecyclerAdapter()
 
-    private fun loadData() {
+    private fun loadRecently() {
         val retrofit = Retrofit.Builder()
             .baseUrl("http://10.0.2.2:8087/api/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         val retrofitService = retrofit.create(BoardApi::class.java)
         retrofitService.getBoards().enqueue(object : Callback<MutableList<Board>> {
+
             override fun onResponse(
                 call: Call<MutableList<Board>>,
                 response: Response<MutableList<Board>>
@@ -44,6 +45,32 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    private fun loadCount() {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://10.0.2.2:8087/api/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val retrofitService = retrofit.create(BoardApi::class.java)
+        retrofitService.getBoardsCount().enqueue(object : Callback<MutableList<Board>> {
+
+            override fun onResponse(
+                call: Call<MutableList<Board>>,
+                response: Response<MutableList<Board>>
+            ) {
+                val body = response.body()
+                body?.let {
+                    mAdapter.setPostList(it)
+                    it.forEach { Log.d("Response", it.toString()) }
+                }
+            }
+
+            override fun onFailure(call: Call<MutableList<Board>>, t: Throwable) {
+                Log.d("Response", t.message.toString())
+            }
+        })
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,16 +79,17 @@ class MainActivity : AppCompatActivity() {
         val registerBoard = binding.registerBoard
 
         registerBoard.setOnClickListener {
+            Log.d("Re","Re")
             val intent = Intent(this, BoardWrite::class.java)
             startActivity(intent)
         }
 
         binding.recently.setOnClickListener {
-            loadData()
+            loadRecently()
         }
 
         binding.count.setOnClickListener {
-
+            loadCount()
         }
 
         //어뎁터 설정
@@ -80,7 +108,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        loadData()
     }
 
 }

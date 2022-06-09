@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.model.Board
+import com.example.assignment.model.PostBoard
 
 class RecyclerAdapter() :
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {

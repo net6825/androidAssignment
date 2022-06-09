@@ -37,11 +37,13 @@
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="460dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/registerBoard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/count">
+        app:layout_constraintTop_toBottomOf="@+id/count"
+        app:layout_constraintVertical_bias="0.52">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -60,9 +62,10 @@
         android:id="@+id/recently"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         android:text="최신순"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editUrl" />
+        app:layout_constraintTop_toBottomOf="@+id/searchTitle" />
 
     <Button
         android:id="@+id/count"
@@ -72,4 +75,28 @@
         android:text="조회순"
         app:layout_constraintBottom_toBottomOf="@+id/recently"
         app:layout_constraintStart_toEndOf="@+id/recently" />
+
+    <EditText
+        android:id="@+id/searchTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="검색"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toStartOf="@+id/searchButton"
+        app:layout_constraintHorizontal_bias="0.81"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editUrl" />
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="검색"
+        app:layout_constraintEnd_toEndOf="@+id/changeURL"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/changeURL"
+        app:layout_constraintTop_toBottomOf="@+id/changeURL" />
 </androidx.constraintlayout.widget.ConstraintLayout>
