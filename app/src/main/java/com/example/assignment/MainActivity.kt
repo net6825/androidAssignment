@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.assignment.api.BoardApi
 import com.example.assignment.databinding.ActivityMainBinding
@@ -59,6 +60,18 @@ class MainActivity : AppCompatActivity() {
         //어뎁터 설정
         binding.recyclerView.adapter = mAdapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
+
+        mAdapter.setListener{ position ->
+            val data = mAdapter.getItem(position)
+            val intent = Intent(this, BoardDetail::class.java)
+            intent.putExtra("id", data.id)
+            intent.putExtra("content", data.content)
+            intent.putExtra("createdAt", data.createdAt)
+            intent.putExtra("count", data.count)
+            intent.putExtra("title", data.title)
+            intent.putExtra("password", data.password)
+            startActivity(intent)
+        }
 
         loadData()
     }

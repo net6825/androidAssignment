@@ -4,7 +4,7 @@ import java.time.LocalDateTime
 
 data class Board(
     var id:Long,
-    var title:String,
+    var title: String,
     var password:String,
     var content:String,
     var createdAt:String,
