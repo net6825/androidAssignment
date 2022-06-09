@@ -41,7 +41,6 @@ class MainActivity : AppCompatActivity() {
             override fun onFailure(call: Call<MutableList<Board>>, t: Throwable) {
                 Log.d("Response", t.message.toString())
             }
-
         })
     }
 
@@ -55,6 +54,14 @@ class MainActivity : AppCompatActivity() {
         registerBoard.setOnClickListener {
             val intent = Intent(this, BoardWrite::class.java)
             startActivity(intent)
+        }
+
+        binding.recently.setOnClickListener {
+            loadData()
+        }
+
+        binding.count.setOnClickListener {
+
         }
 
         //어뎁터 설정

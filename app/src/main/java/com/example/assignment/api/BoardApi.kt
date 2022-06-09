@@ -9,6 +9,9 @@ interface BoardApi {
     @GET("dashboard")
     fun getBoards(): Call<MutableList<Board>>
 
+    @GET("dashboard/count")
+    fun getBoardsCount(): Call<MutableList<Board>>
+
     @GET("dashboard/{id}")
     fun getBoard(@Path("id") id:Long): Call<Board>
 }
