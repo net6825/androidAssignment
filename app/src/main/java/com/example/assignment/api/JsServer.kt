@@ -5,11 +5,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class JsServer {
     companion object{
-        private const val url = "http://192.168.1.29:8087"
+        private const val url = "http://10.0.2.2:8087/api/"
         private var server: Retrofit = Retrofit.Builder()
             .baseUrl(url)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        var boardApi:BoardApi = server.create(BoardApi::class.java)
+        var boardAPi:BoardApi = server.create(BoardApi::class.java)
     }
 }
