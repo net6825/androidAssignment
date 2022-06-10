@@ -59,6 +59,7 @@
         android:ems="10"
         android:hint="비밀번호"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/delete"
         app:layout_constraintStart_toStartOf="parent" />
 

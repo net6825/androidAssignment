@@ -17,3 +17,15 @@ data class PostBoard(
     @SerializedName("content") var content: String?,
     @SerializedName("password") var password: String?
 )
+
+data class EditBoard(
+    var id:Long,
+    var title: String,
+    var password:String,
+    var content:String,
+)
+
+data class RemoveBoard(
+    var id: Long,
+    var password: String
+)
